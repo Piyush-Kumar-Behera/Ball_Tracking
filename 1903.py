@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import imutils
 import time
 
@@ -96,9 +95,22 @@ while True:
 
     distance = (focal_len * ball_radius_in_cm)/(2 * radius1)
     print(distance) 
+    
+    if x2 > 310:
+        move_right()
+        
+    if x2 < 290:
+        move_left()
+        
+    if distance > 15:
+        move_forward()
+        
+    if distance < 25:
+        move_back()
+    else:
+        pickup()
 
     
-
     x1 = x2
     y1 = y2
     radius1 = radius2
